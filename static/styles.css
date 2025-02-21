@@ -1,0 +1,427 @@
+/* Общие стили */
+body {
+  font-family: 'Comfortaa', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #121212;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+/* Отзывчивые изображения */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Навигация */
+.navbar {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0 15px;
+  position: relative;
+}
+.navbar a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+.navbar a:hover {
+  color: #FFD700;
+}
+
+/* Мобильное гамбургер-меню */
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  z-index: 110;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+}
+.mobile-menu-toggle span {
+  display: block;
+  height: 3px;
+  background: #e0e0e0;
+  border-radius: 2px;
+}
+
+/* Заголовок */
+.header {
+  height: 100vh;
+  background: url('header-bg.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.header-content {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  animation: pulse 6s infinite;
+}
+.header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+.header p {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+/* Контейнеры секций */
+.container {
+  max-width: 1200px;
+  margin: 100px auto 50px;
+  padding: 20px;
+  position: relative;
+}
+.story-section,
+.gallery-section,
+.love-letter-section,
+.about-section,
+.birthday-section {
+  margin-bottom: 60px;
+}
+.container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  position: relative;
+}
+.container p {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Галереи */
+.story-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.story-gallery img {
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.story-gallery img:hover {
+  transform: scale(1.05);
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.photo {
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+.photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Любовное письмо */
+.love-letter-section {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+.letter-content p {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Секция поздравления */
+.birthday-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+.birthday-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.birthday-text {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #FFD700;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.birthday-text:hover {
+  background: #FFC107;
+}
+
+/* Секретный триггер */
+.secret-trigger {
+  color: #FFD700;
+  text-decoration: underline;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Подсказки – значки */
+.hint-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 16px;
+  font-size: 12px;
+  color: #FFD700;
+  margin-left: 5px;
+  position: relative;
+  cursor: default;
+}
+.hint-icon::before {
+  content: "?";
+  display: block;
+}
+.hint-icon:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFD700;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 3000;
+  opacity: 0.9;
+}
+
+/* Плавающие сердечки */
+.heart {
+  position: fixed;
+  font-size: 1.5rem;
+  animation: float 4s ease-in-out infinite;
+  color: #FFD700;
+  user-select: none;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Секретные сообщения */
+.secret-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2a2a2a;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  text-align: center;
+  max-width: 80%;
+  color: #fff;
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Эффект появления секций */
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fadeInUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Стреляющие звёзды */
+.shooting-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(white, rgba(255,255,255,0));
+  opacity: 0;
+  transform: rotate(45deg);
+  animation: shootingStar 1.5s linear;
+}
+@keyframes shootingStar {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--distance), var(--distance)) rotate(45deg);
+  }
+}
+
+/* Космическая пыль */
+.cosmic-dust {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at bottom, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none;
+  z-index: -2;
+  animation: drift 30s linear infinite;
+}
+@keyframes drift {
+  from { transform: translateX(0) translateY(0); }
+  to { transform: translateX(-50%) translateY(-50%); }
+}
+
+/* Шарики (balloons) */
+.balloon {
+  position: fixed;
+  width: 40px;
+  height: 60px;
+  bottom: -60px;
+  border-radius: 50% 50% 45% 45%;
+  opacity: 0.9;
+  z-index: 3000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  animation: balloonFloat 5s ease-in-out forwards;
+}
+@keyframes balloonFloat {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-80vh) scale(1) rotate(5deg);
+  }
+  100% {
+    transform: translateY(-100vh) scale(1) rotate(-5deg);
+    opacity: 0;
+  }
+}
+
+/* Конфетти */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 16px;
+  background-color: #FFD700;
+  opacity: 1;
+  z-index: 3000;
+  transform: rotate(0deg);
+  animation: confettiFall 3s ease-in forwards;
+}
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Мобильная оптимизация */
+@media (max-width: 600px) {
+  .header h1 { font-size: 2rem; }
+  .header p { font-size: 1.2rem; }
+  .container { margin: 50px 10px; padding: 10px; }
+  .container h2 { font-size: 1.8rem; }
+  .container p { font-size: 1rem; }
+  .birthday-section h2 { font-size: 2rem; }
+  .birthday-text { padding: 8px 16px; font-size: 1rem; }
+  
+  /* Скрываем навигацию по умолчанию и активируем гамбургер */
+  .navbar {
+    left: -100%;
+    width: 70%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    transition: left 0.3s ease;
+    flex-direction: column;
+    padding-top: 60px;
+  }
+  .navbar.active {
+    left: 0;
+  }
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar li {
+    margin: 15px 0;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+/* Обновлённое позиционирование клавиатурной подсказки */
+.keyboard-hint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000;
+}
